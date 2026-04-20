@@ -69,7 +69,9 @@
     position:fixed;top:24px;left:28px;z-index:50;display:flex;align-items:center;gap:12px;
     padding:8px 14px 8px 8px;border:1px solid var(--line);border-radius:999px;
     background:rgba(10,16,40,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    cursor:pointer;transition:border-color .25s,background .25s;
   }
+  .topbar:hover{border-color:var(--line-2);background:rgba(10,16,40,.8)}
   .topbar img{width:34px;height:34px;border-radius:50%;object-fit:cover;border:1px solid rgba(148,179,255,.3)}
   .topbar .name{font-size:13px;letter-spacing:.01em;color:#e6ecff}
   .topbar .name b{font-weight:600}
@@ -239,7 +241,7 @@
   .proof.dragging{cursor:grabbing}
   .proof .img{flex:1;position:relative;background:#0a0f24;display:flex;align-items:center;justify-content:center;overflow:hidden}
   .proof .img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,9,26,0) 60%,rgba(6,9,26,.6) 100%);pointer-events:none}
-  .proof .img img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .proof .img img{width:100%;height:100%;object-fit:contain;object-position:center}
   .proof .meta{padding:20px 22px 22px;border-top:1px solid rgba(148,179,255,.08);background:rgba(8,13,36,.85)}
   .proof .eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--teal-glow)}
   .proof h3{font-family:var(--serif);font-weight:500;font-size:24px;margin:6px 0 4px;letter-spacing:-.01em}
@@ -254,7 +256,7 @@
   }
   .stack-controls button:hover{border-color:var(--royal-soft);background:rgba(30,63,174,.14)}
   .stack-controls .count{font-size:11px;letter-spacing:.3em;color:var(--mute);margin-left:14px}
-  .stack-hint{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute-2);margin-top:14px}
+  .stack-hint{font-size:13px;color:var(--mute);margin-top:14px}
 
   /* ─── 03 Video ─── */
   #brief .container{max-width:1280px;text-align:center}
@@ -288,7 +290,11 @@
     font-size:clamp(34px,4.2vw,62px);line-height:1.18;letter-spacing:-.01em;max-width:22ch;margin:0 auto;
   }
   .quote .q{color:rgba(47,84,201,.55);font-family:var(--serif);font-size:1.2em;line-height:0;position:relative;top:.25em;margin-right:.1em}
-  .contact{margin-top:72px;display:flex;flex-direction:column;gap:18px;align-items:center}
+  .close-sub{
+    font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.2vw,20px);
+    color:var(--mute);line-height:1.65;max-width:44ch;margin:24px auto 0;
+  }
+  .contact{margin-top:56px;display:flex;flex-direction:column;gap:18px;align-items:center}
   .contact-row{
     display:grid;grid-template-columns:110px 1fr;gap:18px;
     min-width:min(520px,90vw);padding:18px 0;border-bottom:1px solid var(--line);
@@ -323,11 +329,11 @@
 <div class="cursor" id="cursor"></div>
 <div class="cursor-dot" id="cursorDot"></div>
 
-<header class="topbar">
+<a class="topbar" href="#close">
   <img src="assets/mike-headshot-48.jpg" alt="Mike Vera" />
   <div class="name"><b>Mike Vera</b> · NBC-HWC, M.S.</div>
   <span class="dot" title="Available"></span>
-</header>
+</a>
 
 <div class="topright">
   <span>MV · 2026</span>
@@ -374,7 +380,7 @@
         <h2 class="title reveal d1">Why better technology doesn't close the gap.</h2>
       </div>
       <div>
-        <p class="lede reveal d2">Most voice AI deployments underestimate what customers carry into the call. The reflex that makes them disengage before your AI finishes a sentence wasn't created by your product — it was created before it existed.</p>
+        <p class="lede reveal d2">Most voice AI deployments underestimate what customers carry into the call. The reflex that makes them disengage before your AI finishes a sentence wasn't created by your product. It was created before it existed.</p>
         <p class="lede reveal d3" style="margin-top:18px">I wrote about where that gap comes from, and what the deployments that close it are doing differently.</p>
       </div>
     </div>
@@ -426,7 +432,7 @@
     <div class="stack-wrap">
       <div class="stack-copy">
         <h2 class="title reveal d1">The writing that earned the audience.</h2>
-        <p class="lede reveal d2">Three bodies of work. Built without an ad budget, a network effect, or a borrowed audience. The reason the writing lands is the same reason it will land for a voice-AI buyer who has seen a thousand demos: it meets the reader where they actually are.</p>
+        <p class="lede reveal d2">Three audiences built from scratch. No ad spend, no borrowed platform. Podcast listeners, Substack readers, LinkedIn connections. Each one grew because the writing started where the reader actually was, not where it was convenient to assume they were.</p>
         <p class="sm reveal d3">Drag a card to reveal the next. Or use the arrows.</p>
 
         <div class="stack-controls reveal d4">
@@ -438,7 +444,7 @@
           </button>
           <span class="count" id="cardCount">01 / 03</span>
         </div>
-        <p class="stack-hint reveal d5">← drag to throw</p>
+        <p class="stack-hint reveal d5">Swipe or use arrows &mdash; 3 cards total</p>
       </div>
 
       <div class="stack-stage reveal d2" id="stackStage">
@@ -448,7 +454,7 @@
             <div class="eyebrow">Podcast</div>
             <h3>Healthy &amp; Awake</h3>
             <div class="stat">Top 10% on Spotify, second year in a row</div>
-            <p class="desc">Health and behavior change, in audio. Built an audience by writing toward the questions they were actually asking — not the ones they were supposed to have.</p>
+            <p class="desc">Health and behavior change, in audio. I built the show by writing toward the questions listeners were actually carrying, not the ones I assumed they had.</p>
           </div>
         </article>
 
@@ -458,7 +464,7 @@
             <div class="eyebrow">Substack</div>
             <h3>Healthy &amp; Awake</h3>
             <div class="stat">1,000+ subscribers, including a paid tier</div>
-            <p class="desc">Readers who stuck around long enough to pay. Not because I asked — because the work gave them a reason.</p>
+            <p class="desc">Readers who converted without a hard sell. The paid tier grew because the free tier was worth paying to keep. That's what happens when the writing makes people feel like insiders.</p>
           </div>
         </article>
 
@@ -468,7 +474,7 @@
             <div class="eyebrow">LinkedIn</div>
             <h3>431,000 impressions</h3>
             <div class="stat">90 days · zero paid spend</div>
-            <p class="desc">Five posts a week. One tab open watching what worked and what died.</p>
+            <p class="desc">431,000 impressions in 90 days, zero paid promotion. Five posts a week, constant iteration. Tracking what made people stop scrolling and what they scrolled straight past.</p>
           </div>
         </article>
       </div>
@@ -481,14 +487,14 @@
   <div class="ghost">03</div>
   <div class="container">
     <div class="row-label reveal" style="justify-content:center"><span class="line"></span><span class="kicker">03 <span class="sep">·</span> The Brief</span></div>
-    <h2 class="title reveal d1" style="text-align:center;margin-left:auto;margin-right:auto">This is what a content brief looks like when it ships.</h2>
-    <p class="lede reveal d2">I wrote, directed, and produced this for the pitch. Four scenes. Thirty seconds. One tagline. The argument the article makes in prose — this makes in video.</p>
+    <h2 class="title reveal d1" style="text-align:center;margin-left:auto;margin-right:auto">I made a 30-second video for this pitch.</h2>
+    <p class="lede reveal d2">AI-assisted production, rough cut, not broadcast-ready. The concept, script, and direction are mine. I made it because I wanted to show something: the same argument from the article, compressed into 30 seconds and made visual. It's a working prototype.</p>
 
     <div class="video-frame reveal d3">
       <iframe src="https://player.vimeo.com/video/1184634015?h=459bccb0ab&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Mike Vera · Retell Brief"></iframe>
     </div>
     <div class="video-meta reveal d4">
-      <span>Written, directed, produced — M. Vera</span>
+      <span>Concept and direction: M. Vera · AI-assisted production</span>
       <span>00:30 · 16:9</span>
     </div>
   </div>
@@ -500,7 +506,8 @@
   <div class="container" style="max-width:900px;text-align:center">
     <div class="row-label reveal" style="justify-content:center"><span class="line"></span><span class="kicker">04 <span class="sep">·</span> Close</span></div>
 
-    <p class="quote reveal d1"><span class="q">&ldquo;</span>If the shape of this fits what a senior content team is building toward, the rest is a conversation.<span class="q">&rdquo;</span></p>
+    <p class="quote reveal d1">Retell's market is buyers who've seen every voice AI pitch. The writing that lands with them starts from that. That's the work I'd bring to a senior content role here.</p>
+    <p class="close-sub reveal">Available now. Contract engagement. The article, the video, and the track record are the full picture. Reach out if you want to talk.</p>
 
     <div class="contact">
       <div class="contact-row reveal d2"><span class="k">Email</span><a class="v" href="mailto:mikevera@protonmail.com">mikevera@protonmail.com</a></div>
@@ -650,8 +657,9 @@
     closeTl
       .to('#close .row-label.reveal', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, 0)
       .to('#close .quote.reveal',     { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' }, 0.15)
-      .to('#close .contact-row.reveal',{ opacity: 1, y: 0, stagger: 0.14, duration: 0.55, ease: 'power2.out' }, 0.5)
-      .to('#close .foot.reveal',      { opacity: 1, duration: 0.4, ease: 'power2.out' }, 1.0);
+      .to('#close .close-sub.reveal', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, 0.65)
+      .to('#close .contact-row.reveal',{ opacity: 1, y: 0, stagger: 0.14, duration: 0.55, ease: 'power2.out' }, 0.9)
+      .to('#close .foot.reveal',      { opacity: 1, duration: 0.4, ease: 'power2.out' }, 1.4);
   }
 
   initNavDots();
@@ -703,7 +711,7 @@
     function layout(animate) {
       order.forEach((ci, pos) => {
         const card = cards[ci];
-        const y    = pos * 18;
+        const y    = pos * 26;
         const rot  = pos === 0 ? 0 : (pos === 1 ? -2.5 : 2);
         const sc   = 1 - pos * 0.05;
         const props = {
@@ -722,6 +730,16 @@
     }
 
     layout(false);
+
+    /* One-time nudge hint: top card shifts right then springs back */
+    setTimeout(() => {
+      const topCard = cards[order[0]];
+      gsap.to(topCard, { x: 10, duration: 0.3, ease: 'power2.out',
+        onComplete() {
+          gsap.to(topCard, { x: 0, duration: 0.8, ease: 'elastic.out(1, 0.5)' });
+        }
+      });
+    }, 800);
 
     let dragging = null, startX = 0, startY = 0, dx = 0, dy = 0;
 
@@ -792,7 +810,7 @@
       order.forEach((ci, pos) => {
         const card = cards[ci];
         card.style.left = '50%'; card.style.top = '50%';
-        card.style.transform = `translate(-50%, calc(-50% + ${pos * 18}px)) rotate(${pos === 0 ? 0 : pos === 1 ? -2 : 2}deg) scale(${1 - pos * 0.05})`;
+        card.style.transform = `translate(-50%, calc(-50% + ${pos * 26}px)) rotate(${pos === 0 ? 0 : pos === 1 ? -2 : 2}deg) scale(${1 - pos * 0.05})`;
         card.style.zIndex = 10 - pos;
         card.style.opacity = pos > 2 ? '0' : '1';
         card.style.pointerEvents = pos === 0 ? 'auto' : 'none';

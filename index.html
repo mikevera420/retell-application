@@ -331,7 +331,7 @@
 
 <a class="topbar" href="#close">
   <img src="assets/mike-headshot-48.jpg" alt="Mike Vera" />
-  <div class="name"><b>Mike Vera</b> · NBC-HWC, M.S.</div>
+  <div class="name"><b>Mike Vera</b> · Senior Content Writer</div>
   <span class="dot" title="Available"></span>
 </a>
 
@@ -385,9 +385,13 @@
       </div>
     </div>
 
-    <div class="accordion reveal d4" id="accordion" style="margin-top:80px">
+    <blockquote class="reveal d4" style="margin:56px 0 0;padding:28px 32px;border-left:2px solid var(--royal-soft);background:rgba(30,63,174,.07);border-radius:0 6px 6px 0;max-width:68ch">
+      <p style="font-family:var(--serif);font-style:italic;font-size:clamp(18px,1.4vw,22px);line-height:1.6;color:#cfd8f2;margin:0">"Better ASR gets you more accurate transcription. A smarter LLM gets you better responses. Neither one addresses the reflex that fires before your AI finishes its first sentence."</p>
+    </blockquote>
+
+    <div class="accordion reveal d5" id="accordion" style="margin-top:32px">
       <button class="accordion-btn" id="accBtn" aria-expanded="false">
-        <span class="lbl">Read the full piece</span>
+        <span class="lbl">Read the argument in full</span>
         <span class="arrow">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="#cbd5ff" stroke-width="1.3"><path d="M2 4 L5 7 L8 4"/></svg>
         </span>
@@ -449,12 +453,12 @@
 
       <div class="stack-stage reveal d2" id="stackStage">
         <article class="proof" data-idx="0">
-          <div class="img"><img src="assets/healthy-awake-spotify-top10.png" alt="Healthy & Awake Spotify Wrapped — top 10% on Spotify" /></div>
+          <div class="img"><img src="assets/linkedin-analytics-90d.png" alt="LinkedIn analytics — 431,247 impressions in 90 days" /></div>
           <div class="meta">
-            <div class="eyebrow">Podcast</div>
-            <h3>Healthy &amp; Awake</h3>
-            <div class="stat">Top 10% on Spotify, second year in a row</div>
-            <p class="desc">Health and behavior change, in audio. I built the show by writing toward the questions listeners were actually carrying, not the ones I assumed they had.</p>
+            <div class="eyebrow">LinkedIn</div>
+            <h3>431,000 impressions</h3>
+            <div class="stat">90 days · zero paid spend</div>
+            <p class="desc">431,000 impressions in 90 days, zero paid promotion. Five posts a week, constant iteration. Tracking what made people stop scrolling and what they scrolled straight past.</p>
           </div>
         </article>
 
@@ -469,12 +473,12 @@
         </article>
 
         <article class="proof" data-idx="2">
-          <div class="img"><img src="assets/linkedin-analytics-90d.png" alt="LinkedIn analytics — 431,247 impressions in 90 days" /></div>
+          <div class="img"><img src="assets/healthy-awake-spotify-top10.png" alt="Healthy & Awake Spotify Wrapped — top 10% on Spotify" /></div>
           <div class="meta">
-            <div class="eyebrow">LinkedIn</div>
-            <h3>431,000 impressions</h3>
-            <div class="stat">90 days · zero paid spend</div>
-            <p class="desc">431,000 impressions in 90 days, zero paid promotion. Five posts a week, constant iteration. Tracking what made people stop scrolling and what they scrolled straight past.</p>
+            <div class="eyebrow">Podcast</div>
+            <h3>Healthy &amp; Awake</h3>
+            <div class="stat">Top 10% on Spotify, second year in a row</div>
+            <p class="desc">Health and behavior change, in audio. I built the show by writing toward the questions listeners were actually carrying, not the ones I assumed they had.</p>
           </div>
         </article>
       </div>
@@ -692,7 +696,7 @@
     accBtn.addEventListener('click', () => {
       const open = acc.classList.toggle('open');
       accBtn.setAttribute('aria-expanded', open);
-      accBtn.querySelector('.lbl').textContent = open ? 'Close the full piece' : 'Read the full piece';
+      accBtn.querySelector('.lbl').textContent = open ? 'Close the argument' : 'Read the argument in full';
       accBody.style.maxHeight = open ? accBody.scrollHeight + 'px' : '0px';
       setTimeout(() => { if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh(); }, 920);
     });
